@@ -1,0 +1,36 @@
+.green {
+  background: #60a970;
+}
+.red {
+  background: #ce357f !important ;
+}
+.pink {
+  background: #dc507a;
+}
+.blue {
+  background: #1ba1df;
+}
+
+.yellow {
+  background: #f0a30a;
+}
+.brown {
+  background: #825a2c !important;
+}
+.disable {
+  background: #cccccc !important;
+}
+.statsTitle {
+  color: #ffffff !important;
+}
+.card {
+  width: 30%;
+  float: left;
+  height: 100px;
+  margin: 5px;
+}
+.percnetage {
+  text-align: center;
+  font-size: 36px !important;
+  font-weight: bold;
+}
