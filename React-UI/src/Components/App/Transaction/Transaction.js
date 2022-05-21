@@ -9,19 +9,22 @@ import Select from "react-select";
 import { HomeService } from "../../_Services";
 import "./Transaction.css";
 import MenuItems from "../Menu/Menu";
+import i18next from "../../../i18n";
+import { withTranslation } from "react-i18next";
 
 class Transaction extends Component {
   constructor(props) {
     super(props);
+    const { t } = props;
 
+    console.log(t("Q1"));
     this.state = {
       series: [],
       fullstats: {},
       selectedOption: {
         value: 1,
 
-        label:
-          "You have 3 pairs of coloured clothes with heavy stains. What options would you prefer to wash the clothes?",
+        label: t("Q1"),
         selected: false,
         program: [],
       },
@@ -29,15 +32,13 @@ class Transaction extends Component {
         {
           value: 1,
 
-          label:
-            "You have 3 pairs of coloured clothes with heavy stains. What options would you prefer to wash the clothes?",
+          label: t("Q1"),
           selected: false,
           program: [],
         },
         {
           value: 2,
-          label:
-            "You have 2 pairs of cotton clothes. What options would you prefer to wash the clothes?",
+          label: t("Q2"),
           selected: false,
           program: [],
         },
@@ -244,16 +245,25 @@ class Transaction extends Component {
 
   render() {
     const { selectedOption, q, series } = this.state;
+    const { t } = this.props;
 
+    selectedOption.label = t(selectedOption.label);
+
+    q.forEach(function (v) {
+      v.label = t(v.label);
+    });
+
+    console.log(t("Q1"));
     // console.log(JSON.stringify(series));
     return (
-      <div class="container-fluid">
+      <div class="">
         <MenuItems />
         <div class="row full-width">
           <div className="charts">
-            <h2 align="center">Sample Visualizations</h2>
-            <div class="row col-md-4 p-30">
-              <label class="q-label">Choose Question</label>
+            <br />
+            <h2 align="center">{t("Sample Visualizations")}</h2>
+            <div class="row col-md-4 p-10">
+              <label class="q-label">{t("Select Question")}</label>
               <Select
                 value={selectedOption}
                 onChange={this.handleChange}
@@ -271,4 +281,4 @@ class Transaction extends Component {
   }
 }
 
-export default Transaction;
+export default withTranslation(["translation"])(Transaction);

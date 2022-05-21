@@ -1,6 +1,8 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 
+import { withTranslation } from "react-i18next";
+
 class Bubble extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +16,7 @@ class Bubble extends React.Component {
         chart: {
           height: 350,
           type: "treemap",
+          fontFamily: "Roboto,sans-serif",
         },
         title: {
           text: "Distibuted Treemap For Analysis",
@@ -61,6 +64,16 @@ class Bubble extends React.Component {
   render() {
     var { options, series } = this.state;
 
+    var { t } = this.props;
+
+    options.title.text = t("Distibuted Treemap For Analysis");
+    series.forEach(function (v) {
+      v.name = t(v.name);
+      v.data.forEach(function (s) {
+        s.x = t(s.x);
+      });
+    });
+
     console.log(options);
     console.log(series);
     return (
@@ -76,4 +89,4 @@ class Bubble extends React.Component {
   }
 }
 
-export default Bubble;
+export default withTranslation(["translation"])(Bubble);

@@ -537,7 +537,29 @@ class Machine extends React.Component {
   };
 
   back = () => {
-    console.log();
+    const {
+      settings,
+
+      program,
+      language,
+      wash,
+      extras,
+      temparature,
+      speed,
+    } = this.state;
+
+    console.log(program, language, wash, extras, temparature, speed, settings);
+    if (
+      (program || language || settings) &&
+      !wash &&
+      !extras &&
+      !temparature &&
+      !speed
+    ) {
+      this.selectHome();
+    } else if (wash || extras || temparature || speed) {
+      this.selectProgramDetail();
+    }
   };
 
   componentDidMount() {
@@ -582,21 +604,30 @@ class Machine extends React.Component {
         <MenuItems />
         {/* Menu Ites Section End */}
         {/* Question & Stats Section Start */}
-        <div className="left">
-          <Question
-            showMachine={this.showMachine}
-            activeQ={activeQ}
-            changeQ={this.changeQ}
-          />
-          <div className="charts">
-            <Stats
-              stats={stats}
-              temparature={this.state.temparature}
-              speed={this.state.speed}
-              extras={this.state.extras}
+        {start ? (
+          <div className="left">
+            <Question
+              showMachine={this.showMachine}
+              activeQ={activeQ}
+              changeQ={this.changeQ}
             />
+            {program ? (
+              <div className="charts">
+                <Stats
+                  stats={stats}
+                  temparature={this.state.temparature}
+                  speed={this.state.speed}
+                  extras={this.state.extras}
+                />
+              </div>
+            ) : (
+              ""
+            )}
           </div>
-        </div>
+        ) : (
+          ""
+        )}
+
         {/* Question & Stats Section End */}
 
         {/* Washing Machine Start*/}
@@ -646,7 +677,7 @@ class Machine extends React.Component {
 
               {success ? (
                 <div className="completed">
-                  <span className="blink">Program Completed</span>
+                  <span className="blink">{t("Program Completed")}</span>
                 </div>
               ) : (
                 ""
@@ -692,7 +723,7 @@ class Machine extends React.Component {
                           </a>
                         </li>
                         <li>
-                          {!program ? "Home" : ""}
+                          {!program ? t("Home") : ""}
                           {program && !wash && !temparature && !speed
                             ? "Programme"
                             : ""}
@@ -711,14 +742,18 @@ class Machine extends React.Component {
                               href="javascript:void(0)"
                               onClick={this.zoomWindow}
                             >
-                              {!zoom ? "Zoom In" : "Zoom Out"}
+                              {!zoom ? t("Zoom In") : t("Zoom Out")}
                             </a>
                           </li>
-                          <li>
-                            <a href="javascript:void(0)" onClick={this.back}>
-                              <img src="images/return.png" alt="test" />
-                            </a>
-                          </li>
+                          {program || language || settings ? (
+                            <li>
+                              <a href="javascript:void(0)" onClick={this.back}>
+                                <img src="images/return.png" alt="test" />
+                              </a>
+                            </li>
+                          ) : (
+                            ""
+                          )}
                         </ul>
                       </div>
                     </div>
@@ -794,7 +829,7 @@ class Machine extends React.Component {
                               onClick={this.showLanguage}
                             >
                               <img src="images/baumwolee.png" />
-                              <p>Language</p>
+                              <p>{t("Language")}</p>
                               <p className="std">&nbsp;</p>
                             </a>
                           </div>
@@ -989,7 +1024,7 @@ class Machine extends React.Component {
                     {program || language ? (
                       <div className="ok-button">
                         <a href="javascript:void(0)" onClick={this.selectHome}>
-                          ok
+                          Ok
                         </a>
                       </div>
                     ) : (
@@ -1005,7 +1040,7 @@ class Machine extends React.Component {
                           href="javascript:void(0)"
                           onClick={this.selectProgramDetail}
                         >
-                          ok
+                          Ok
                         </a>
                       </div>
                     ) : (

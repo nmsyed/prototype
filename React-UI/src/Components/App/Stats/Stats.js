@@ -17,6 +17,7 @@ const colors = {
 export function Stats(props) {
   const [data, setData] = useState([]);
   const [max, setMax] = useState(0);
+  const { t } = props;
   const [options, setOptions] = useState({
     backgroundColor: "#aaaaaa",
     title: "Program wise Stats",
@@ -83,7 +84,7 @@ export function Stats(props) {
   return (
     <>
       <div>
-        <h2 className="statsTitle">{options.title}</h2>
+        <h2 className="statsTitle">{t(options.title)}</h2>
       </div>
       <div className="card-columns text-white">
         {data.map((card, index) => {
@@ -94,7 +95,7 @@ export function Stats(props) {
               }`}
             >
               <div className="card-body">
-                <h5 className="card-title">{card[0]}</h5>
+                <h5 className="card-title">{t(card[0])}</h5>
                 <p className="percnetage">{card[1]}%</p>
               </div>
             </div>

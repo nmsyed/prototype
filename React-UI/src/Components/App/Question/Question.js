@@ -3,9 +3,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable */
 import React from "react";
-
+import i18n from "../../../i18n";
 import { withTranslation } from "react-i18next";
-
+import { loadLanguages } from "i18next";
 import "./Question.css";
 
 const options = {
@@ -22,6 +22,7 @@ class Question extends React.Component {
     super(props);
     this.countPlaces = 0;
     this.defaultBetValue = 10;
+    const { t } = this.props;
     this.state = {
       button: false,
       activeQ: 1,
@@ -29,15 +30,13 @@ class Question extends React.Component {
         {
           id: 1,
 
-          label:
-            "You have 3 pairs of coloured clothes with heavy stains. What options would you prefer to wash the clothes?",
+          label: "Q1",
           selected: false,
           program: [],
         },
         {
           id: 2,
-          label:
-            "You have 2 pairs of cotton clothes. What options would you prefer to wash the clothes?",
+          label: "Q2",
           selected: false,
           program: [],
         },
@@ -71,7 +70,7 @@ class Question extends React.Component {
                 key={ind}
                 className={activeQ === item.id ? "active" : "styleNone hide"}
               >
-                <label htmlFor={item.label}>{item.label}</label>
+                <label htmlFor={item.label}>{t(item.label)}</label>
               </li>
             ))}
 

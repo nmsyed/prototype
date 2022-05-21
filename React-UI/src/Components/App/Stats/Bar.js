@@ -1,5 +1,6 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
+import { withTranslation } from "react-i18next";
 
 class Bar extends React.Component {
   constructor(props) {
@@ -134,13 +135,18 @@ class Bar extends React.Component {
 
   render() {
     var { options, series } = this.state;
+
+    var { t } = this.props;
+
+    series[0].name = t("Transaction Time");
+
     console.log(options);
     console.log(series);
     return (
       <div id="chart">
         <ReactApexChart
-          options={this.state.options}
-          series={this.state.series}
+          options={options}
+          series={series}
           type="bar"
           height={350}
           width={1000}
@@ -150,4 +156,4 @@ class Bar extends React.Component {
   }
 }
 
-export default Bar;
+export default withTranslation(["translation"])(Bar);

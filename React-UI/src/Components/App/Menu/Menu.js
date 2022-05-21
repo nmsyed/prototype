@@ -1,6 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function Menu() {
+import { withTranslation } from "react-i18next";
+
+function Menu(props) {
+  const { t } = props;
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -19,19 +23,20 @@ function Menu() {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto nav justify-content-end">
             <li class="nav-item active">
-              <a class="nav-link active" href="/">
-                Home <span class="sr-only"></span>
-              </a>
+              <Link className="nav-link active" to="/">
+                {t("Home")}
+                <span class="sr-only"></span>
+              </Link>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="transactions">
-                Reports - Tree Visualizations
-              </a>
+              <Link className="nav-link active" to="/transactions">
+                {t("Visualization-Treemap")}
+              </Link>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="userTransactions">
-                Reports - Transaction Visualizations
-              </a>
+              <Link className="nav-link active" to="/userTransactions">
+                {t("Visulaization-Bar graph")}
+              </Link>
             </li>
           </ul>
         </div>
@@ -40,4 +45,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default withTranslation(["translation"])(Menu);
