@@ -87,20 +87,26 @@ export function Stats(props) {
         <h2 className="statsTitle">{t(options.title)}</h2>
       </div>
       <div className="card-columns text-white">
-        {data.map((card, index) => {
-          return (
-            <div
-              className={`card mt-1 mb-1 ${
-                max === card[2] ? colors[options.lable] : "brown"
-              }`}
-            >
-              <div className="card-body">
-                <h5 className="card-title">{t(card[0])}</h5>
-                <p className="percnetage">{card[1]}%</p>
+        {data.length > 0 &&
+          data.map((card, index) => {
+            return (
+              <div
+                className={`card mt-1 mb-1 ${
+                  max === card[2] ? colors[options.lable] : "brown"
+                }`}
+              >
+                <div className="card-body">
+                  <h5 className="card-title">{t(card[0])}</h5>
+                  <p className="percnetage">{card[1]}%</p>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        {data.length == 0 ? (
+          <div className="card mt-1 mb-1 yellow nodata">No Data Available.</div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

@@ -9,3 +9,7 @@
 .container-fluid {
   margin: 0px !important;
 }
+
+.p-60 {
+  padding-left: 78px;
+}

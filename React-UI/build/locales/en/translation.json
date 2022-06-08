@@ -1,5 +1,8 @@
 {
-  "select_cloth_type": "Select Cloth Type",
+  "Programme": "Programs",
+  "Temperature": "Temperature",
+  "Speed": "Speed",
+  "select_cloth_type": "Task-based User Survey",
   "Automatic plus": "Automatic plus",
   "Cotton": "Cotton",
   "Cotton Hygiene": "Cotton Hygiene",
@@ -15,5 +18,18 @@
   "QuickPowerWash": "QuickPowerWash",
   "Silk": "Silk",
   "Sportswear": "Sportswear",
-  "Wool": "Wool"
+  "Wool": "Wool",
+  "Q1": "You have 3 pairs of colored clothes with heavy stains. What options would you prefer to wash the clothes?",
+  "Q2": "You have 2 pairs of cotton clothes. What options would you prefer to wash the clothes?",
+  "Program Completed": "Program Completed",
+  "Language": "Language",
+  "Sample Visualizations": "Sample Visualizations",
+  "Select Question": "Select Question",
+  "Visualization-Treemap": "Visualization-Treemap",
+  "Visulaization-Bar graph": "Visulaization-Bar graph",
+  "Home": "Home",
+  "Distibuted Treemap For Analysis": "Distibuted Treemap For Analysis",
+  "Transaction Time": "Transaction Time",
+  "Zoom In": "Zoom In",
+  "Zoom Out": "Zoom Out"
 }

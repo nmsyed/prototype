@@ -129,7 +129,7 @@ class UserTransaction extends Component {
           <div className="charts">
             <br />
             <h2 align="center">{t("Sample Visualizations")}</h2>
-            <div class="row col-md-4 p-30">
+            <div class="row col-md-4 p-60">
               <label class="q-label">{t("Select Question")}</label>
               <Select
                 value={selectedOption}

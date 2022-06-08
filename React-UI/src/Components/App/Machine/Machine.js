@@ -114,7 +114,7 @@ class Machine extends React.Component {
           this.setState({ success: false, feedback: true }, function () {
             this.userStats();
           });
-        }, 5000);
+        }, 1000);
         // alert('Thanks for providing feedback');
       } else
         setTimeout(() => {
@@ -149,7 +149,7 @@ class Machine extends React.Component {
           );
 
           this.setDefault();
-        }, 5000);
+        }, 1000);
 
       return "<span ClassName='blink'>program Completed !</span>";
     } else {
@@ -686,7 +686,7 @@ class Machine extends React.Component {
               {feedback ? (
                 <div className="completed">
                   <span className="blink">
-                    Thank you for your valuable feedback.
+                    {t("Thank you for your valuable feedback")}
                   </span>
                 </div>
               ) : (

@@ -21,6 +21,10 @@ class Bubble extends React.Component {
         title: {
           text: "Distibuted Treemap For Analysis",
           align: "center",
+          style: {
+            color: "#DBABBE",
+            fontSize: "18px",
+          },
         },
         colors: [
           "#3B93A5",

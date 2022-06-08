@@ -238,7 +238,14 @@ body {
 
 .charts {
   float: left;
-  margin-left: 7px;
+  margin-left: 13px;
+  margin-top: 8px;
+  width: 100%;
+  border-radius: 10px;
+}
+.charts-bubble {
+  float: left;
+  margin-left: 65px;
   margin-top: 8px;
   width: 100%;
   border-radius: 10px;
